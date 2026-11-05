@@ -548,6 +548,8 @@ footer .bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
 .player .go span{display:inline-flex;align-items:center;gap:12px;padding:8px 18px 8px 8px;border-radius:999px;background:rgba(11,19,43,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb,var(--d-ink) 18%,transparent);font:600 1rem var(--f-body);color:var(--d-ink);transition:transform .3s var(--ease)}
 .player .go i{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--copper);color:var(--navy);box-shadow:0 0 0 8px color-mix(in srgb,var(--copper) 25%,transparent)}
 .player .go i svg{width:20px;height:20px;fill:currentColor;margin-left:3px}
+.player.muted .go{background:linear-gradient(180deg,rgba(11,19,43,0) 60%,rgba(11,19,43,.45))}
+.player.muted .go i svg{width:22px;height:22px;margin-left:0}
 .player .go small{font:500 .82rem var(--f-mono);color:var(--d-muted)}
 .player .go:hover span{transform:scale(1.04)}
 .player .go:focus-visible span{outline:2px solid var(--sky);outline-offset:4px}
@@ -597,7 +599,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
         </div>
         <div class="hero-film rise d2">
           <div class="player" id="film">
-            <video src="axio-presentation.mp4" poster="axio-film-poster.webp" playsinline preload="none" aria-label="Vidéo de présentation d'Axio"></video>
+            <video src="axio-presentation.mp4" poster="axio-film-poster.webp" muted playsinline preload="metadata" aria-label="Vidéo de présentation d'Axio"></video>
             <button class="go" type="button" aria-label="Lire la vidéo de présentation d'Axio, 48 secondes"><span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg></i>Voir Axio en action <small>0:48</small></span></button>
           </div>
           <p class="film-cap">Axio en 48 secondes · le soir, l'ordi reste fermé.</p>
@@ -909,8 +911,19 @@ footer .bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
 
   /* --- vidéo de présentation --- */
   var film = document.getElementById('film'), fv = film.querySelector('video');
-  function playFilm(){ film.classList.add('on'); fv.setAttribute('controls',''); try { var p = fv.play(); if (p && p.catch) p.catch(function(){}); } catch(e){} }
-  film.querySelector('.go').addEventListener('click', playFilm);
+  var go = film.querySelector('.go');
+  function tryPlay(){ try { var p = fv.play(); if (p && p.catch) p.catch(function(){}); } catch(e){} }
+  function playFilm(){ film.classList.remove('muted'); film.classList.add('on'); fv.loop = false; fv.muted = false; try { fv.currentTime = 0; } catch(e){} fv.setAttribute('controls',''); tryPlay(); }
+  go.addEventListener('click', playFilm);
+  /* lecture automatique muette (les navigateurs bloquent le son sans clic) */
+  if (!reduce) {
+    fv.muted = true; fv.loop = true; film.classList.add('muted');
+    go.setAttribute('aria-label', "Activer le son et revoir la vidéo de présentation d'Axio depuis le début, 48 secondes");
+    go.querySelector('span').innerHTML = '<i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></i>Activer le son <small>0:48</small>';
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(en){ if (!film.classList.contains('muted')) return; if (en[0].isIntersecting) tryPlay(); else fv.pause(); }, { threshold: .25 }).observe(film);
+    } else tryPlay();
+  }
   document.querySelectorAll('[data-playfilm]').forEach(function(a){ a.addEventListener('click', function(){ setTimeout(playFilm, reduce ? 0 : 450); }); });
   fv.addEventListener('ended', function(){ try { fv.currentTime = 0; } catch(e){} });
 
