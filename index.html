@@ -1,7 +1,7 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Axio Assistant</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Axio, l'assistant IA de votre entreprise : il retrouve vos documents, relance vos clients, prépare vos devis et cale vos rendez-vous, avec vos données. Il prépare, vous validez.">
+<meta name="description" content="Axio, l'assistant IA de votre entreprise, fait cinq choses : il retrouve vos documents, trie vos mails, relance vos clients, prépare vos devis et cale vos rendez-vous, avec vos données. Il prépare, vous validez.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -452,6 +452,8 @@ footer .bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
 .brand-ax img{height:34px;width:auto;display:block;filter:drop-shadow(0 6px 10px rgba(0,0,0,.4))}
 .brand-ax small{font:600 .62rem var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--d-muted);border:1px solid var(--d-rule);border-radius:999px;padding:3px 8px;margin-left:2px}
 .trio.quad{grid-template-columns:repeat(4,minmax(0,1fr))}
+.trio-cap{font:600 .75rem/1.4 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--copper-ink-d);margin-bottom:calc(14px - clamp(40px,5vw,60px))}
+@media (max-width:920px){.trio-cap{order:3}}
 @media (max-width:1080px){.trio.quad{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){.trio.quad{grid-template-columns:1fr}}
 .trio.quad .tcard{grid-template-columns:1fr;gap:10px}
@@ -591,7 +593,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
         <div class="hero-copy">
           <p class="eyebrow rise">L'assistant IA de votre entreprise</p>
           <h1 class="h1 rise d1" id="h-hero">Axio <span class="axio-charm" title="Axio"><img src="axio.webp" alt="" width="115" height="220"></span> fait le travail que personne <span class="u">n'aime.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></h1>
-          <p class="lead rise d2">Il retrouve vos documents, relance vos clients, prépare vos devis et cale vos rendez-vous. Il travaille avec vos propres données et vos outils actuels. <b>Il prépare, vous validez.</b></p>
+          <p class="lead rise d2">Il fait cinq choses pour vous : il retrouve vos documents, trie vos mails, relance vos clients, prépare vos devis et cale vos rendez-vous. Il travaille avec vos propres données et vos outils actuels. <b>Il prépare, vous validez.</b></p>
           <div class="cta-row rise d3">
             <a class="btn btn-sky" href="#demo">Réserver une démo de 30 min <span class="arr" aria-hidden="true">→</span></a>
             <a class="btn btn-line" href="#produits">Voir les quatre produits</a>
@@ -606,6 +608,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wra
         </div>
       </div>
 
+      <p class="trio-cap">Cinq choses, quatre produits <span aria-hidden="true">·</span> Mails et Relances vont ensemble</p>
       <div class="trio quad" role="list" aria-label="Les quatre produits Axio">
         <a class="tcard rise d1" role="listitem" href="#p-memoire">
           <span class="ti"><svg><use href="#i-brain"/></svg></span>
