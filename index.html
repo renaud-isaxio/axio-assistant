@@ -265,6 +265,8 @@ h1,h2,h3{font-weight:800;letter-spacing:-.045em;line-height:.92}
 .demo ul{list-style:none;padding:0;margin-top:28px;display:grid;gap:14px;font-size:18px;max-width:40ch}
 .demo li{padding-left:30px;position:relative}
 .demo li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border-radius:50%;background:var(--amber)}
+.demo .suivre{margin-top:26px;font-size:18px}
+.demo .suivre a{color:var(--amber);font-weight:700}
 .demo .pose-demo{width:170px;height:auto;margin-top:36px}
 .cal{grid-column:7 / span 6;background:var(--paper);border-radius:var(--r);min-height:720px;overflow:hidden;position:relative}
 .cal .calendly-inline-widget{min-width:300px;height:720px}
@@ -294,7 +296,11 @@ footer{background:var(--sage-l);color:var(--ink);padding:clamp(56px,7vw,96px) va
 .blocks span:nth-child(3){height:62%;background:var(--amber);color:var(--ink)}
 .blocks span:nth-child(4){height:88%;background:var(--sage);color:var(--paper)}
 .f-links{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px;margin-top:56px;font-size:16px}
-.f-links nav{grid-column:span 3;display:grid;gap:8px;align-content:start}
+.f-links nav{grid-column:span 2;display:grid;gap:8px;align-content:start}
+.f-links .reseaux{grid-column:span 3}
+.reseaux a{display:inline-flex;align-items:center;gap:10px}
+.reseaux svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;flex:none}
+.reseaux svg .pt{fill:currentColor;stroke:none}
 .f-links nav b{font-size:16px;margin-bottom:4px}
 .f-links a{text-decoration:none}
 .f-links a:hover{color:var(--coral)}
@@ -303,7 +309,7 @@ footer{background:var(--sage-l);color:var(--ink);padding:clamp(56px,7vw,96px) va
 .f-last .btn{min-height:44px;padding:0 20px;font-size:15px}
 
 /* film */
-dialog.film-d{border:0;padding:0;background:#000;border-radius:var(--r);width:min(92vw,1100px);overflow:hidden}
+dialog.film-d{margin:auto;inset:0;max-height:90svh;border:0;padding:0;background:#000;border-radius:var(--r);width:min(92vw,1100px);overflow:hidden}
 dialog.film-d::backdrop{background:rgba(29,38,32,.82)}
 dialog.film-d video{width:100%;height:auto}
 dialog.film-d form{position:absolute;top:10px;right:10px}
@@ -356,6 +362,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   .demo .txt,.faq h2{position:static}
   .f-links{grid-template-columns:1fr 1fr}
   .f-links nav,.f-links .by{grid-column:auto}
+  .f-links .reseaux{grid-column:1 / -1}
   .f-links .by{grid-column:1 / -1}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.vis:not(.in) [data-ui] .row,.vis:not(.in) .dl{opacity:1!important;transform:none!important}}
@@ -575,6 +582,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
         <li>On vous montre le produit qui correspond, sur un exemple proche du vôtre.</li>
         <li>On vous dit franchement si Axio peut vous aider, et ce que ça coûterait chez vous.</li>
       </ul>
+      <p class="suivre rv w3">En attendant, Axio est aussi sur <a href="https://www.instagram.com/isaxio.lab/" target="_blank" rel="noopener" data-umami-event="reseau-instagram">Instagram</a> et <a href="https://www.tiktok.com/@isaxio.lab" target="_blank" rel="noopener" data-umami-event="reseau-tiktok">TikTok</a>.</p>
       <img class="pose-demo rv w3" src="media/axio-coucou.webp" width="720" height="894" alt="" loading="lazy">
     </div>
     <div class="cal" id="cal">
@@ -606,6 +614,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
     <nav aria-label="Les produits"><b>Les produits</b><a href="#memoire">Axio Mémoire</a><a href="#mails">Axio Mails</a><a href="#relances">Axio Relances</a><a href="#devis">Axio Devis</a><a href="#rdv">Axio Rendez-vous</a></nav>
     <nav aria-label="Le site"><b>Le site</b><a href="#comment">Comment ça marche</a><a href="#questions">Questions</a><a href="#demo">Démo de 30 min</a></nav>
     <nav aria-label="Isaxio"><b>Isaxio</b><a href="https://www.isaxio.com" target="_blank" rel="noopener">isaxio.com</a><a href="https://www.isaxio.com/#sur-mesure" target="_blank" rel="noopener">Outils sur mesure</a></nav>
+    <nav aria-label="Nos réseaux" class="reseaux"><b>Suivez Axio</b><a href="https://www.instagram.com/isaxio.lab/" target="_blank" rel="noopener" data-umami-event="reseau-instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" class="pt"/></svg>Instagram · @isaxio.lab</a><a href="https://www.tiktok.com/@isaxio.lab" target="_blank" rel="noopener" data-umami-event="reseau-tiktok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg>TikTok · @isaxio.lab</a></nav>
     <div class="by"><b>Axio, un produit Isaxio</b><span>L'assistant IA qui connaît votre entreprise. Données hébergées en France ou en Europe.</span></div>
   </div>
   <div class="f-last"><span>© 2026 Isaxio</span><a class="btn ink" href="#demo" data-umami-event="cta-demo-footer">Réserver ma démo</a></div>
@@ -774,6 +783,18 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   var vu=false;try{vu=localStorage.getItem('axio-voix-vue')==='1'}catch(e){}
   if(vu) sous.textContent="Re-bonjour ! On en parle 30 minutes ?";
   setTimeout(function(){bulle.classList.add('on')},vu?400:1500);
+  if(!vu){
+    var auto=function(e){
+      ['click','keydown','touchend'].forEach(function(t){document.removeEventListener(t,auto,true)});
+      if(e.target.closest&&e.target.closest('#bulle')) return;
+      try{localStorage.setItem('axio-voix-vue','1')}catch(x){}
+      bulle.classList.add('on');
+      voix.currentTime=0;
+      var p=voix.play();if(p&&p.catch) p.catch(function(){});
+      track('voix-accueil-auto');
+    };
+    ['click','keydown','touchend'].forEach(function(t){document.addEventListener(t,auto,true)});
+  }
   btn.addEventListener('click',function(){if(!voix.paused){voix.pause();return}voix.currentTime=0;voix.play()});
   voix.addEventListener('play',function(){bulle.classList.add('lit');axio.classList.add('parle');label.textContent='Pause'});
   voix.addEventListener('pause',function(){bulle.classList.remove('lit');axio.classList.remove('parle');label.textContent='Réécouter'});
