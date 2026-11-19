@@ -130,6 +130,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.045em;line-height:.92}
 .fermer{position:absolute;top:16px;right:18px;background:none;border:0;color:inherit;font:700 15px var(--f);cursor:pointer;opacity:.75;padding:8px}
 .fermer:hover{opacity:1}
 .pose{width:min(62%,380px);height:auto;position:relative;z-index:2}
+@media (min-width:901px){.pose[src*="telephone"]{margin-left:-17%}} /* Axio au téléphone : décalé pour que la carte ne cache pas son visage */
 .ui-float{position:absolute;z-index:3;right:0;bottom:4%;width:min(64%,380px)!important}
 
 /* repère : onglet actif, bandeau collant */
@@ -529,7 +530,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
       <a class="btn ink" href="#demo" data-umami-event="cta-demo-appel">Voir la démo en rendez-vous</a>
         </div>
         <div class="vis">
-      <img class="pose" src="media/axio-coucou.webp" width="720" height="894" alt="Axio fait coucou." loading="lazy">
+      <img class="pose" src="media/axio-telephone.webp" width="720" height="894" alt="Axio répond au téléphone." loading="lazy">
       <div data-ui class="ui-float" aria-label="Exemple d'appel décroché par Axio">
         <header>Appel · Mme Marchetti <small>09:14</small></header>
         <div class="sms">
