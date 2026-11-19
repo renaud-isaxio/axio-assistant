@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Axio · l'assistant qui fait vos papiers</title>
-<meta name="description" content="Axio prépare vos devis, trie vos mails, relance vos clients, cale vos rendez-vous et retrouve vos documents. Avec vos prix et vos outils. Vous validez.">
+<meta name="description" content="Axio prépare vos devis, trie vos mails, relance vos clients, cale vos rendez-vous, décroche vos appels et retrouve vos documents. Avec vos prix et vos outils. Vous validez.">
 <meta property="og:title" content="Axio fait vos papiers.">
-<meta property="og:description" content="Devis, mails, relances, rendez-vous, documents : Axio prépare tout avec vos prix et vos outils. Vous validez d'un geste.">
+<meta property="og:description" content="Devis, mails, relances, rendez-vous, appels, documents : Axio prépare tout avec vos prix et vos outils. Vous validez d'un geste.">
 <meta property="og:image" content="https://axio-assistant.com/media/axio-coucou.webp">
 <link rel="icon" href="media/axio-coucou.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,23 +83,25 @@ h1,h2,h3{font-weight:800;letter-spacing:-.045em;line-height:.92}
 .bulle .ferme:hover{color:var(--ink)}
 .sous{display:block;min-height:2.7em;font-size:19px}
 
-/* classeur : les cinq dossiers */
-.classeur{position:relative;margin:64px var(--m) 0;height:330px;scroll-margin-top:70px;transition:height .5s var(--ease)}
+/* classeur : les six dossiers */
+.classeur{position:relative;margin:64px var(--m) 0;height:376px;scroll-margin-top:70px;transition:height .5s var(--ease)}
 .dossier{position:absolute;left:0;right:0;bottom:0;border-radius:0 var(--r) 0 0;transition:top .5s var(--ease),transform .35s var(--ease)}
 .dossier .onglet{position:absolute;bottom:100%;height:44px;display:flex;align-items:center;padding:0 26px 0 22px;border:0;font:700 18px var(--f);color:inherit;background:inherit;cursor:pointer;clip-path:polygon(0 100%,10px 0,calc(100% - 18px) 0,100% 100%);border-radius:10px 0 0 0;transition:padding .25s,left .35s var(--ease),height .3s var(--ease),font-size .3s var(--ease),opacity .25s}
 .dossier .onglet .ct{display:none}
 .dossier .onglet:hover{padding-bottom:6px}
-.classeur:not(.ouvert) .dossier:not(.d5):hover{transform:translateY(-8px)}
-.classeur:not(.ouvert) .dossier:not(.d5){cursor:pointer}
+.classeur:not(.ouvert) .dossier:not(.d6):hover{transform:translateY(-8px)}
+.classeur:not(.ouvert) .dossier:not(.d6){cursor:pointer}
 .d1{top:0}.d1 .onglet{left:0}
 .d2{top:46px}.d2 .onglet{left:19%}
 .d3{top:92px}.d3 .onglet{left:38%}
 .d4{top:138px}.d4 .onglet{left:57%}
-.d5{top:184px}.d5 .onglet{right:0}
+.d5{top:184px}.d5 .onglet{left:76%}
+.d6{top:230px}.d6 .onglet{right:0}
 .c-memoire{background:var(--ink);color:#fff}
 .c-mails{background:var(--sage-l);color:var(--ink)}
 .c-relances{background:var(--coral);color:var(--ink)}
 .c-devis{background:var(--amber);color:var(--ink)}
+.c-appel{background:#a9c3cf;color:var(--ink)}
 .c-rdv{background:var(--sage);color:#fff}
 .intro{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:28px clamp(20px,3vw,40px)}
 .intro p{font-size:clamp(20px,2vw,28px);font-weight:700;line-height:1.2;max-width:30ch}
@@ -332,12 +334,12 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   .axio{order:-1;width:min(62%,260px);justify-self:end;margin-bottom:-8px}
   .bulle{right:72%;top:4%;width:180px;font-size:15px;padding:14px 32px 13px 14px}
   .sous{font-size:16px}
-  .classeur{height:380px;margin-top:56px}
-  .dossier .onglet{height:38px;font-size:12.5px;padding:0 4px;width:20%;justify-content:center;clip-path:polygon(0 100%,6px 0,calc(100% - 8px) 0,100% 100%);letter-spacing:-.01em}
+  .classeur{height:420px;margin-top:56px}
+  .dossier .onglet{height:38px;font-size:11px;padding:0 2px;width:16.666%;justify-content:center;clip-path:polygon(0 100%,6px 0,calc(100% - 8px) 0,100% 100%);letter-spacing:-.01em}
   .contenu h2{font-size:clamp(38px,11vw,56px)}
   .dossier .onglet .lg{display:none}.dossier .onglet .ct{display:inline}
-  .d1 .onglet{left:0}.d2 .onglet{left:20%}.d3 .onglet{left:40%}.d4 .onglet{left:60%}.d5 .onglet{left:80%;right:auto}
-  .d2{top:40px}.d3{top:80px}.d4{top:120px}.d5{top:160px}
+  .d1 .onglet{left:0}.d2 .onglet{left:16.666%}.d3 .onglet{left:33.333%}.d4 .onglet{left:50%}.d5 .onglet{left:66.666%}.d6 .onglet{left:83.333%;right:auto}
+  .d2{top:40px}.d3{top:80px}.d4{top:120px}.d5{top:160px}.d6{top:200px}
   .intro .btn{width:100%}
   .contenu{grid-template-columns:1fr;gap:36px;padding:48px 18px 36px}
   .contenu .txt,.contenu .vis{grid-column:1}
@@ -379,7 +381,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   <section class="hero" aria-labelledby="h1">
     <div>
       <h1 id="h1" class="rv">Axio fait vos papiers.</h1>
-      <p class="lead rv w1">Devis, mails, relances, rendez-vous, documents&nbsp;: il prépare tout avec vos prix et vos outils. Vous validez d'un geste.</p>
+      <p class="lead rv w1">Devis, mails, relances, rendez-vous, appels, documents&nbsp;: il prépare tout avec vos prix et vos outils. Vous validez d'un geste.</p>
       <div class="acts rv w2">
         <a class="btn" href="#demo" data-umami-event="cta-demo-hero">Réserver ma démo de 30 min</a>
         <button class="film" type="button" id="film-btn" data-umami-event="film-play"><i></i>Le film, 48 s</button>
@@ -395,7 +397,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
     </figure>
   </section>
 
-  <div class="classeur" id="produits" aria-label="Les cinq produits">
+  <div class="classeur" id="produits" aria-label="Les six produits">
     <div class="dossier d1 c-memoire" id="memoire" data-id="memoire">
       <button class="onglet" type="button" aria-expanded="false" aria-controls="ct-memoire" data-umami-event="dossier-memoire"><span class="lg">Mémoire</span><span class="ct">Mémoire</span></button>
       <div class="contenu" id="ct-memoire">
@@ -510,9 +512,40 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
         </div>
       </div>
     </div>
-    <div class="dossier d5 c-rdv" id="rdv" data-id="rdv">
+    <div class="dossier d5 c-appel" id="appel" data-id="appel">
+      <button class="onglet" type="button" aria-expanded="false" aria-controls="ct-appel" data-umami-event="dossier-appel"><span class="lg">Appel</span><span class="ct">Appel</span></button>
+      <div class="contenu" id="ct-appel">
+        <p class="ici">Dossier <b>Axio Appel</b><button class="fermer" type="button">Refermer ×</button></p>
+        <div class="txt">
+      <h2 id="h-appel">Axio Appel</h2>
+      <p class="what">Vous êtes occupé, le téléphone sonne. Axio décroche.</p>
+      <ul>
+        <li>Vous gardez votre numéro. Il décroche seulement quand vous ne répondez pas, et il dit dès sa première phrase qu'il est une IA.</li>
+        <li>Il comprend la demande, pose le rendez-vous dans votre agenda ou prend le message. <b>Il ne donne jamais de prix</b> et n'accepte rien à votre place.</li>
+        <li>Une urgence&nbsp;? Vous êtes prévenu par SMS pendant l'appel. C'est vous qui décidez ce qui est urgent.</li>
+        <li>Les démarcheurs sont écartés poliment. Après chaque appel, vous recevez le résumé et la conversation écrite.</li>
+      </ul>
+      <p class="remp"><b>Ce qu'il remplace :</b> la messagerie que personne n'écoute, et le client qui appelle le suivant sur sa liste parce que personne n'a décroché.</p>
+      <a class="btn ink" href="#demo" data-umami-event="cta-demo-appel">Voir la démo en rendez-vous</a>
+        </div>
+        <div class="vis">
+      <img class="pose" src="media/axio-coucou.webp" width="720" height="894" alt="Axio fait coucou." loading="lazy">
+      <div data-ui class="ui-float" aria-label="Exemple d'appel décroché par Axio">
+        <header>Appel · Mme Marchetti <small>09:14</small></header>
+        <div class="sms">
+          <p class="me"><small>Axio</small>Bonjour, Lefèvre Rénovation. Je suis Axio, l'assistant IA de Julien. Il est en rendez-vous, je m'occupe de vous.</p>
+          <p class="them"><small>Mme Marchetti</small>Je n'ai plus d'eau chaude depuis hier soir.</p>
+          <p class="me"><small>Axio</small>Julien peut passer mardi à 14 h ou mercredi à 17 h. Qu'est-ce qui vous arrange ?</p>
+          <p class="them"><small>Mme Marchetti</small>Mardi 14 h.</p>
+        </div>
+        <div class="foot"><span>Résumé envoyé par SMS</span><span class="tag t-ok">Dans l'agenda</span></div>
+      </div>
+        </div>
+      </div>
+    </div>
+    <div class="dossier d6 c-rdv" id="rdv" data-id="rdv">
       <button class="onglet" type="button" aria-expanded="false" aria-controls="ct-rdv" data-umami-event="dossier-rdv"><span class="lg">Rendez-vous</span><span class="ct">RDV</span></button>
-      <div class="intro"><p>Cinq dossiers que vous n'ouvrirez plus le soir. Ouvrez celui qui vous pèse le plus.</p><a class="btn paper" href="#demo" data-umami-event="cta-demo-dossiers">Voir la démo en rendez-vous</a></div>
+      <div class="intro"><p>Six dossiers que vous n'ouvrirez plus le soir. Ouvrez celui qui vous pèse le plus.</p><a class="btn paper" href="#demo" data-umami-event="cta-demo-dossiers">Voir la démo en rendez-vous</a></div>
       <div class="contenu" id="ct-rdv">
         <p class="ici">Dossier <b>Axio Rendez-vous</b><button class="fermer" type="button">Refermer ×</button></p>
         <div class="txt">
@@ -547,10 +580,10 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   <section class="how" id="comment" aria-labelledby="h-how">
     <div class="how-head">
       <h2 id="h-how" class="rv">Il prépare, vous validez.</h2>
-      <p class="rv w1">Mails, relances, devis, rendez-vous ou documents : c'est toujours le même principe. Axio travaille avec vos outils actuels, vous gardez le dernier mot.</p>
+      <p class="rv w1">Mails, relances, devis, rendez-vous, appels ou documents : c'est toujours le même principe. Axio travaille avec vos outils actuels, vous gardez le dernier mot.</p>
     </div>
     <div class="acc rv w2" id="acc">
-      <button class="st" type="button" aria-expanded="true"><span class="nm">Ça arrive</span><span class="hr">24 h/24</span><span class="bd">Un mail qui tombe, un SMS de client, une facture qui dépasse son échéance, une question sur un vieux contrat, un vocal en sortant du chantier.</span></button>
+      <button class="st" type="button" aria-expanded="true"><span class="nm">Ça arrive</span><span class="hr">24 h/24</span><span class="bd">Un mail qui tombe, un SMS de client, un appel pendant un rendez-vous, une facture qui dépasse son échéance, une question sur un vieux contrat, un vocal en sortant du chantier.</span></button>
       <button class="st" type="button" aria-expanded="false"><span class="nm">Il prépare</span><span class="hr">1 min</span><span class="bd">La réponse au mail, la relance, le créneau, le devis ou le document retrouvé. Avec vos prix, vos modèles et votre agenda. Chaque élément dit d'où il vient.</span></button>
       <button class="st" type="button" aria-expanded="false"><span class="nm">Vous validez</span><span class="hr">1 geste</span><span class="bd">Vous relisez, vous corrigez si besoin, vous validez. Rien ne part sans vous, sauf ce que vous avez autorisé, comme le rappel d'un rendez-vous.</span></button>
       <button class="st" type="button" aria-expanded="false"><span class="nm">Il suit</span><span class="hr">0 oubli</span><span class="bd">Il envoie, relance au bon moment, rappelle le rendez-vous la veille et classe chaque document dans le bon dossier. Il s'arrête dès que le client répond.</span></button>
@@ -560,7 +593,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   <!-- Ensemble -->
   <section class="ens" aria-labelledby="h-ens">
     <div class="ens-head">
-      <h2 id="h-ens" class="rv">Un seul assistant, cinq produits.</h2>
+      <h2 id="h-ens" class="rv">Un seul assistant, six produits.</h2>
       <p class="rv w1">Axio apprend votre entreprise une fois. Chaque produit que vous ajoutez rend les autres meilleurs.</p>
     </div>
     <ol class="liens">
@@ -568,6 +601,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
       <li class="rv"><span class="pair">Mémoire <i>→</i> Devis</span><p>Le devis reprend les prix et les lignes de vos devis précédents pour ce type de chantier.</p></li>
       <li class="rv"><span class="pair">Relances <i>→</i> Rendez-vous</span><p>Le client qui signe reçoit tout de suite deux créneaux pour démarrer.</p></li>
       <li class="rv"><span class="pair">Mails <i>→</i> Rendez-vous</span><p>Une demande d'intervention par mail devient une proposition de créneau.</p></li>
+      <li class="rv"><span class="pair">Appel <i>→</i> Rendez-vous</span><p>Le client qui appelle pendant que vous êtes occupé raccroche avec un créneau dans votre agenda.</p></li>
       <li class="rv"><span class="pair">Rendez-vous <i>→</i> Mémoire</span><p>Le compte rendu de la visite est classé dans le bon dossier client.</p></li>
     </ol>
   </section>
@@ -600,10 +634,11 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
       <details name="faq" class="rv"><summary>Faut-il changer nos outils ?<i></i></summary><p>Non. Axio se branche sur votre messagerie, votre agenda, vos dossiers partagés et votre logiciel de facturation. Il travaille dans vos modèles de devis et de courriers.</p></details>
       <details name="faq" class="rv w1"><summary>Est-ce qu'Axio envoie des messages tout seul ?<i></i></summary><p>Pas sans votre accord. Par défaut, chaque envoi attend votre validation. Vous pouvez autoriser certains envois simples, comme le rappel d'un rendez-vous la veille ou une relance de devis.</p></details>
       <details name="faq" class="rv w1"><summary>Et s'il se trompe de prix ?<i></i></summary><p>Il ne fixe jamais un prix lui-même. Il prend ceux de votre grille ou ceux que vous avez dits. Une ligne qu'il ne sait pas chiffrer reste « à chiffrer », et vous relisez tout avant l'envoi.</p></details>
+      <details name="faq" class="rv w1"><summary>Au téléphone, le client sait-il qu'il parle à une IA ?<i></i></summary><p>Oui. Axio le dit dès sa première phrase. Il décroche seulement quand vous ne répondez pas, il ne donne jamais de prix et il n'accepte rien à votre place. Vous recevez le résumé par SMS après chaque appel.</p></details>
       <details name="faq" class="rv w2"><summary>Où vont nos données ?<i></i></summary><p>Elles sont hébergées en France ou en Europe, elles ne servent jamais à entraîner une IA et vous pouvez tout récupérer ou tout supprimer à la fin.</p></details>
       <details name="faq" class="rv w2"><summary>Combien ça coûte ?<i></i></summary><p>Le prix dépend des produits choisis et du nombre d'utilisateurs. On vous le donne pendant la démo, avant tout engagement.</p></details>
       <details name="faq" class="rv w3"><summary>Combien de temps pour l'installer ?<i></i></summary><p>On installe le premier produit avec vous : vos prix, vos modèles, vos mentions. Vous traitez votre premier vrai dossier le jour même. Vous ajoutez les autres produits quand vous voulez.</p></details>
-      <details name="faq" class="rv w3"><summary>Notre besoin ne rentre dans aucun des cinq produits.<i></i></summary><p>Isaxio, l'équipe qui construit Axio, conçoit aussi des outils sur mesure. Présentez-nous votre besoin sur <a href="https://www.isaxio.com/#sur-mesure" target="_blank" rel="noopener">isaxio.com</a>.</p></details>
+      <details name="faq" class="rv w3"><summary>Notre besoin ne rentre dans aucun des six produits.<i></i></summary><p>Isaxio, l'équipe qui construit Axio, conçoit aussi des outils sur mesure. Présentez-nous votre besoin sur <a href="https://www.isaxio.com/#sur-mesure" target="_blank" rel="noopener">isaxio.com</a>.</p></details>
     </div>
   </section>
 </main>
@@ -611,7 +646,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
 <footer>
   <div class="blocks" aria-label="Axio"><span aria-hidden="true">A</span><span aria-hidden="true">x</span><span aria-hidden="true">i</span><span aria-hidden="true">o</span></div>
   <div class="f-links">
-    <nav aria-label="Les produits"><b>Les produits</b><a href="#memoire">Axio Mémoire</a><a href="#mails">Axio Mails</a><a href="#relances">Axio Relances</a><a href="#devis">Axio Devis</a><a href="#rdv">Axio Rendez-vous</a></nav>
+    <nav aria-label="Les produits"><b>Les produits</b><a href="#memoire">Axio Mémoire</a><a href="#mails">Axio Mails</a><a href="#relances">Axio Relances</a><a href="#devis">Axio Devis</a><a href="#appel">Axio Appel</a><a href="#rdv">Axio Rendez-vous</a></nav>
     <nav aria-label="Le site"><b>Le site</b><a href="#comment">Comment ça marche</a><a href="#questions">Questions</a><a href="#demo">Démo de 30 min</a></nav>
     <nav aria-label="Isaxio"><b>Isaxio</b><a href="https://www.isaxio.com" target="_blank" rel="noopener">isaxio.com</a><a href="https://www.isaxio.com/#sur-mesure" target="_blank" rel="noopener">Outils sur mesure</a></nav>
     <nav aria-label="Nos réseaux" class="reseaux"><b>Suivez Axio</b><a href="https://www.instagram.com/isaxio.lab/" target="_blank" rel="noopener" data-umami-event="reseau-instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" class="pt"/></svg>Instagram · @isaxio.lab</a><a href="https://www.tiktok.com/@isaxio.lab" target="_blank" rel="noopener" data-umami-event="reseau-tiktok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg>TikTok · @isaxio.lab</a></nav>
@@ -668,7 +703,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   var bureau=document.getElementById('bureau'),dos=document.getElementById('dos3d'),couv=document.getElementById('couv'),
       texte=document.getElementById('texte'),feuilles=document.getElementById('feuilles'),mobTxt=document.getElementById('mob-txt'),
       titre=document.getElementById('dos-titre'),onglet3d=document.getElementById('onglet3d'),btnFermer=document.getElementById('fermer3d');
-  var COUL={memoire:['#1d2620','#e3e8dc','#fff'],mails:['#b9c4ad','#eef1e8','#1d2620'],relances:['#e8603c','#f8ddd2','#1d2620'],devis:['#f2b35c','#fbeacf','#1d2620'],rdv:['#5f6d56','#e5eadf','#fff']};
+  var COUL={memoire:['#1d2620','#e3e8dc','#fff'],mails:['#b9c4ad','#eef1e8','#1d2620'],relances:['#e8603c','#f8ddd2','#1d2620'],devis:['#f2b35c','#fbeacf','#1d2620'],appel:['#a9c3cf','#e4eef2','#1d2620'],rdv:['#5f6d56','#e5eadf','#fff']};
   var actif=null,dernierFocus=null,enCours=false;
   var P='perspective(1500px) ';
   function rempli(d){
@@ -756,7 +791,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   dossiers.forEach(function(d){
     d.querySelector('.onglet').addEventListener('click',function(e){e.stopPropagation();ouvrir(d)});
     d.addEventListener('click',function(e){
-      if(e.target.closest('a,button')||d.classList.contains('d5')) return;
+      if(e.target.closest('a,button')||d.classList.contains('d6')) return;
       ouvrir(d);
     });
   });
