@@ -384,7 +384,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
       <p class="lead rv w1">Devis, mails, relances, rendez-vous, appels, documents&nbsp;: il prépare tout avec vos prix et vos outils. Vous validez d'un geste.</p>
       <div class="acts rv w2">
         <a class="btn" href="#demo" data-umami-event="cta-demo-hero">Réserver ma démo de 30 min</a>
-        <button class="film" type="button" id="film-btn" data-umami-event="film-play"><i></i>Le film, 48 s</button>
+        <button class="film" type="button" id="film-btn" data-umami-event="film-play"><i></i>Le film, 53 s</button>
       </div>
     </div>
     <figure class="axio" id="axio">
@@ -814,7 +814,7 @@ dialog.film-d form button{width:44px;height:44px;border-radius:50%;border:0;back
   /* voix d'accueil */
   var bulle=document.getElementById('bulle'),sous=document.getElementById('sous'),btn=document.getElementById('ecouter'),
       voix=document.getElementById('voix'),axio=document.getElementById('axio'),label=btn.querySelector('span');
-  var cues=[[0,"Bonjour, moi c'est Axio."],[2.1,"Je prépare vos devis, je trie vos mails,"],[4.4,"je relance vos clients et je cale vos rendez-vous."],[6.9,"Et je peux faire bien plus encore."],[9,"Avec vos prix, vos modèles, vos outils."],[11.4,"Vous, vous validez."],[12.7,"On en parle trente minutes ?"]];
+  var cues=[[0,"Bonjour, moi c'est Axio."],[2.1,"Je prépare vos devis, je trie vos mails,"],[4.4,"je relance vos clients, je cale vos rendez-vous"],[6.9,"et je décroche vos appels."],[8.5,"Et je peux faire bien plus encore."],[10.6,"Avec vos prix, vos modèles, vos outils."],[13.2,"Vous, vous validez."],[14.6,"On en parle trente minutes ?"]];
   var vu=false;try{vu=localStorage.getItem('axio-voix-vue')==='1'}catch(e){}
   if(vu) sous.textContent="Re-bonjour ! On en parle 30 minutes ?";
   setTimeout(function(){bulle.classList.add('on')},vu?400:1500);
