@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Appelez Axio · démonstration d'Axio Appel</title>
+<meta name="description" content="Démonstration d'Axio Appel : appelez une entreprise fictive, Axio décroche.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../axio.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="991af07d-b9c7-4dd4-945d-59c8b4f9254d"></script>
+<style>
+:root{color-scheme:light;--ground:#fbf6ee;--ink:#1d2620;--sage:#5f6d56;--sage-l:#b9c4ad;--coral:#e8603c;--amber:#f2b35c;--bleu:#a9c3cf;--bleu-l:#e4eef2;--f:"Bricolage Grotesque",system-ui,sans-serif;--m:clamp(16px,3vw,40px);--r:18px}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{font:500 18px/1.5 var(--f);color:var(--ink);background:var(--ground);padding-bottom:180px}
+a{color:inherit}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px var(--m)}
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:-.03em;text-decoration:none}
+.logo img{width:32px;height:32px;border-radius:50%;object-fit:cover;background:var(--sage-l)}
+.pastille{font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--bleu);white-space:nowrap}
+.haut{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,3vw,40px);align-items:end;padding:clamp(24px,5vw,72px) var(--m) 0}
+h1{font-weight:800;font-size:clamp(56px,9vw,136px);line-height:.92;letter-spacing:-.05em}
+.lead{margin-top:28px;font-size:clamp(19px,1.7vw,24px);max-width:34ch}
+.lead b{font-weight:800}
+.fleche{margin-top:28px;display:inline-flex;align-items:center;gap:12px;font-weight:800;font-size:18px}
+.fleche i{width:40px;height:40px;border-radius:50%;background:var(--coral);display:grid;place-items:center;flex:none}
+.fleche i::before{content:"";width:11px;height:11px;border-right:3px solid #fff;border-bottom:3px solid #fff;transform:translateY(-2px) rotate(45deg)}
+.axio{justify-self:center;width:min(100%,360px);height:auto}
+.essais{margin:clamp(40px,6vw,88px) var(--m) 0}
+.essais h2{font-weight:800;font-size:clamp(28px,3.4vw,48px);letter-spacing:-.04em;line-height:1}
+.essais ol{list-style:none;padding:0;margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.essais li{border-radius:var(--r);padding:24px;display:grid;gap:14px;align-content:start}
+.essais li:nth-child(1){background:var(--bleu-l)}
+.essais li:nth-child(2){background:#fbeacf}
+.essais li:nth-child(3){background:#e3e8dc}
+.essais .dit{font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-.01em}
+.essais .fait{font-size:16px}
+.essais .fait b{font-weight:800}
+.note{margin:clamp(32px,4vw,56px) var(--m) 0;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,3vw,40px);align-items:center;padding:28px clamp(20px,3vw,40px);border-radius:var(--r);background:var(--ink);color:#fff}
+.note p{font-size:17px;max-width:60ch}
+.note p+p{margin-top:10px;opacity:.8;font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:999px;background:var(--coral);color:#fff;font-weight:700;text-decoration:none;justify-self:end;text-align:center}
+.btn:hover{background:#d2512f}
+@media (max-width:900px){
+  body{font-size:17px;padding-bottom:200px}
+  .haut{grid-template-columns:1fr}
+  .axio{order:-1;width:min(60%,220px);justify-self:start}
+  .essais ol{grid-template-columns:1fr}
+  .note{grid-template-columns:1fr}
+  .btn{justify-self:stretch}
+  .pastille{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/"><img src="../axio.webp" alt="" width="32" height="32">Axio</a>
+  <span class="pastille">Démonstration · Axio Appel</span>
+</header>
+
+<main>
+  <section class="haut">
+    <div>
+      <h1>Appelez Axio.</h1>
+      <p class="lead">Vous appelez <b>Lefèvre Rénovation</b>, un plombier qui n'existe pas. Julien, le gérant, est en rendez-vous. Axio décroche à sa place.</p>
+      <p class="fleche"><i aria-hidden="true"></i>Le bouton « Appeler Axio » est en bas de l'écran</p>
+    </div>
+    <img class="axio" src="../media/axio-telephone.webp" width="720" height="894" alt="Axio répond au téléphone.">
+  </section>
+
+  <section class="essais" aria-labelledby="h-essais">
+    <h2 id="h-essais">Trois appels à essayer.</h2>
+    <ol>
+      <li><p class="dit">« Je n'ai plus d'eau chaude depuis hier, il faut que quelqu'un passe. »</p><p class="fait"><b>Il pose le rendez-vous.</b> Il demande l'adresse, propose deux créneaux et confirme.</p></li>
+      <li><p class="dit">« Combien ça coûte de refaire une salle de bain ? »</p><p class="fait"><b>Il ne donne jamais de prix.</b> Il prend les informations utiles, et Julien rappelle.</p></li>
+      <li><p class="dit">« Bonjour, je vous appelle au sujet de vos factures d'énergie. »</p><p class="fait"><b>Il écarte le démarcheur.</b> Poliment, sans déranger Julien.</p></li>
+    </ol>
+  </section>
+
+  <section class="note">
+    <div>
+      <p>Chez vous, Axio connaît vos horaires, votre agenda et vos règles. Vous gardez votre numéro : il décroche seulement quand vous ne répondez pas.</p>
+      <p>Ceci est une démonstration : l'entreprise, l'agenda et les SMS sont fictifs. Votre conversation est transcrite, votre voix n'est pas enregistrée.</p>
+    </div>
+    <a class="btn" href="/#demo" data-umami-event="cta-demo-appel-page">Réserver ma démo de 30 min</a>
+  </section>
+</main>
+
+<elevenlabs-convai agent-id="agent_3401m7ssw5x2fnfv7ysmxzb4k5xj"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</body>
+</html>
