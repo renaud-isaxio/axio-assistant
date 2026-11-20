@@ -160,7 +160,7 @@ button:focus-visible{outline:3px solid var(--bleu);outline-offset:3px}
     }
     try{
       var c=await ElevenLabsClient.Conversation.startSession({
-        agentId:AGENT,connectionType:'webrtc',
+        agentId:AGENT,connectionType:'websocket',
         onConnect:function(){if(n!==essai)return;vAppel.classList.remove('sonne');vAppel.classList.add('pris');t0=Date.now();etat.textContent='00:00';chrono=setInterval(function(){etat.textContent=duree()},500);cancelAnimationFrame(anim);animer()},
         onModeChange:function(m){mode=m&&m.mode||''},
         onDisconnect:function(){if(n===essai)finir()},
