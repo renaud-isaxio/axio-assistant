@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Téléphone · démonstration d'Axio Appel</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../../axio.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
+<style>
+/* Écran de tournage : un téléphone centré, sans rien autour. Réglages par l'adresse :
+   ?sonneries=1 (nombre de sonneries avant qu'Axio décroche, 2 par défaut) · ?fond=sombre */
+:root{color-scheme:dark;--ground:#fbf6ee;--ink:#1d2620;--ecran:#161d18;--ecran2:#243028;--txt:#f4efe5;--doux:#a9b3a6;--touche:#2e3a31;--vert:#3fbf6b;--rouge:#e5484d;--bleu:#a9c3cf;--coral:#e8603c;--f:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font:500 18px/1.4 var(--f);background:var(--ground);color:var(--txt);display:grid;place-items:center;overflow:hidden;-webkit-user-select:none;user-select:none}
+body.sombre{background:#0e1310}
+.tel{height:min(94vh,900px);aspect-ratio:9/18.6;border-radius:54px;background:#0b0f0c;padding:12px;box-shadow:0 30px 80px rgba(29,38,32,.28),0 0 0 2px #2a332c inset}
+.ecran{position:relative;height:100%;border-radius:43px;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,var(--ecran2),var(--ecran) 70%);container-type:size}
+.ecran::before{content:"";position:absolute;top:1.6cqh;left:50%;translate:-50% 0;width:26cqw;height:3.2cqh;border-radius:99px;background:#0b0f0c;z-index:5}
+.vue{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:9cqh 8cqw 5cqh;opacity:0;visibility:hidden;transition:opacity .25s}
+.vue.on{opacity:1;visibility:visible}
+button{font:inherit;color:inherit;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:focus-visible{outline:3px solid var(--bleu);outline-offset:3px}
+
+/* Clavier */
+.num{margin-top:7cqh;height:9cqh;display:grid;place-items:center;font-weight:700;font-size:8.4cqw;letter-spacing:.01em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.num:empty::before{content:"Composez un numéro";font-size:5cqw;font-weight:500;color:var(--doux)}
+.touches{margin-top:4cqh;display:grid;grid-template-columns:repeat(3,19cqw);gap:2.6cqh 6.5cqw}
+.touches button{width:19cqw;height:19cqw;border-radius:50%;background:var(--touche);display:grid;place-content:center;justify-items:center;transition:background .12s,transform .12s}
+.touches button:active,.touches button.tape{background:#4a5a4e;transform:scale(.94)}
+.touches b{font-size:8cqw;font-weight:500;line-height:1}
+.touches i{font-style:normal;font-size:2.5cqw;font-weight:700;letter-spacing:.14em;color:var(--doux);height:3cqw}
+.bas{margin-top:auto;display:grid;grid-template-columns:repeat(3,19cqw);gap:0 6.5cqw;align-items:center}
+.rond{width:19cqw;height:19cqw;border-radius:50%;display:grid;place-items:center;transition:transform .12s,filter .12s}
+.rond:active{transform:scale(.94);filter:brightness(1.15)}
+.rond svg{width:8.4cqw;height:8.4cqw;fill:#fff}
+.appeler{background:var(--vert);grid-column:2}
+.eff{background:none;font-size:4.4cqw;color:var(--doux);font-weight:700;grid-column:3;visibility:hidden}
+.eff.on{visibility:visible}
+
+/* En appel */
+.avatar{margin-top:5cqh;width:34cqw;height:34cqw;border-radius:50%;background:var(--bleu);color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:13cqw;letter-spacing:-.04em;position:relative}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;background:#b9c4ad;opacity:0;transition:opacity .4s}
+.pris .avatar img{opacity:1}
+.sonne .avatar::after{content:"";position:absolute;inset:-2.2cqw;border-radius:50%;border:2px solid var(--bleu);animation:onde 1.6s ease-out infinite}
+@keyframes onde{from{opacity:.8;transform:scale(1)}to{opacity:0;transform:scale(1.35)}}
+.nom{margin-top:3.4cqh;font-weight:800;font-size:8.2cqw;letter-spacing:-.03em;line-height:1.05;text-align:center}
+.ligne{margin-top:.8cqh;font-size:4.6cqw;color:var(--doux);font-variant-numeric:tabular-nums}
+.etat{margin-top:1.6cqh;font-size:5.4cqw;font-weight:700;font-variant-numeric:tabular-nums;min-height:7.6cqw;text-align:center}
+.etat.err{color:#ffb4a3;font-size:4.4cqw;font-weight:500}
+.qui{margin-top:2.4cqh;display:flex;align-items:center;gap:2.4cqw;padding:1.6cqw 4cqw 1.6cqw 3cqw;border-radius:99px;background:rgba(169,195,207,.16);font-size:4cqw;font-weight:700;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.pris .qui{opacity:1;transform:none}
+.barres{display:flex;align-items:center;gap:.9cqw;height:5cqw}
+.barres span{width:1.1cqw;height:1.4cqw;border-radius:99px;background:var(--bleu);transition:height .09s}
+.actions{margin-top:auto;display:grid;grid-template-columns:repeat(3,17cqw);gap:2.4cqh 8cqw;justify-items:center}
+.actions div{display:grid;justify-items:center;gap:1cqh;font-size:3.2cqw;color:var(--doux);white-space:nowrap}
+.actions span{width:17cqw;height:17cqw;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center}
+.actions svg{width:7cqw;height:7cqw;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.actions .actif span{background:#fff}
+.actions .actif svg{stroke:var(--ink)}
+.raccrocher{margin-top:3.4cqh;background:var(--rouge)}
+.raccrocher svg{transform:rotate(135deg)}
+.fini .raccrocher,.fini .actions{opacity:.35;pointer-events:none}
+.rappeler{display:none;margin-top:2cqh;background:none;font-size:4.2cqw;font-weight:700;color:var(--bleu)}
+.fini .rappeler{display:block}
+@media (prefers-reduced-motion:reduce){.sonne .avatar::after{animation:none}.vue,.qui{transition:none}}
+</style>
+</head>
+<body>
+<div class="tel">
+  <div class="ecran">
+
+    <section class="vue on" id="v-clavier" aria-label="Clavier">
+      <p class="num" id="num" aria-live="polite"></p>
+      <div class="touches" id="touches">
+        <button data-k="1"><b>1</b><i></i></button><button data-k="2"><b>2</b><i>ABC</i></button><button data-k="3"><b>3</b><i>DEF</i></button>
+        <button data-k="4"><b>4</b><i>GHI</i></button><button data-k="5"><b>5</b><i>JKL</i></button><button data-k="6"><b>6</b><i>MNO</i></button>
+        <button data-k="7"><b>7</b><i>PQRS</i></button><button data-k="8"><b>8</b><i>TUV</i></button><button data-k="9"><b>9</b><i>WXYZ</i></button>
+        <button data-k="*"><b>*</b><i></i></button><button data-k="0"><b>0</b><i>+</i></button><button data-k="#"><b>#</b><i></i></button>
+      </div>
+      <div class="bas">
+        <button class="rond appeler" id="appeler" aria-label="Appeler"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></button>
+        <button class="eff" id="eff" aria-label="Effacer le dernier chiffre">Effacer</button>
+      </div>
+    </section>
+
+    <section class="vue" id="v-appel" aria-label="Appel">
+      <div class="avatar"><span>LR</span><img src="../../axio.webp" alt=""></div>
+      <p class="nom">Lefèvre Rénovation</p>
+      <p class="ligne" id="ligne">06 39 98 30 77</p>
+      <p class="etat" id="etat" aria-live="polite">Appel en cours…</p>
+      <p class="qui"><span class="barres" id="barres" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span><span id="qui">Axio a décroché</span></p>
+      <div class="actions" aria-hidden="true">
+        <div><span><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>Muet</div>
+        <div><span><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="1.2"/><circle cx="12" cy="6" r="1.2"/><circle cx="18" cy="6" r="1.2"/><circle cx="6" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18" cy="12" r="1.2"/><circle cx="6" cy="18" r="1.2"/><circle cx="12" cy="18" r="1.2"/><circle cx="18" cy="18" r="1.2"/></svg></span>Clavier</div>
+        <div class="actif"><span><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></span>Haut-parleur</div>
+      </div>
+      <button class="rond raccrocher" id="raccrocher" aria-label="Raccrocher"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></button>
+      <button class="rappeler" id="rappeler">Revenir au clavier</button>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@elevenlabs/client@1.32.1/dist/lib.iife.js"></script>
+<script>
+(function(){
+  var AGENT='agent_3401m7ssw5x2fnfv7ysmxzb4k5xj', NUMERO='0639983077';
+  var q=new URLSearchParams(location.search);
+  var SONNERIES=Math.max(0,Math.min(4,parseInt(q.get('sonneries')||'2',10)||0));
+  if(q.get('fond')==='sombre')document.body.classList.add('sombre');
+  var $=function(id){return document.getElementById(id)};
+  var vClavier=$('v-clavier'),vAppel=$('v-appel'),num=$('num'),etat=$('etat'),barres=$('barres').children;
+  var saisi='',conv=null,ctx=null,t0=0,chrono=0,anim=0,mode='',vivant=false,essai=0;
+
+  function fmt(s){return s.replace(/(\d{2})(?=\d)/g,'$1 ')}
+  function montrer(){num.textContent=/^\d+$/.test(saisi)?fmt(saisi):saisi;$('eff').classList.toggle('on',!!saisi)}
+  function taper(k){if(saisi.length<14){saisi+=k;montrer();bip(k)}}
+  function vue(v){vClavier.classList.toggle('on',v===vClavier);vAppel.classList.toggle('on',v===vAppel)}
+  function audio(){if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx}
+  function ton(freqs,duree,vol,quand){
+    var c=audio(),g=c.createGain(),t=c.currentTime+(quand||0);
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.02);g.gain.setValueAtTime(vol,t+duree-.03);g.gain.linearRampToValueAtTime(0,t+duree);
+    g.connect(c.destination);
+    freqs.forEach(function(f){var o=c.createOscillator();o.frequency.value=f;o.connect(g);o.start(t);o.stop(t+duree+.02)});
+  }
+  /* Tonalités des touches (les deux fréquences de chaque touche d'un clavier téléphonique) */
+  var L={'1':[697,1209],'2':[697,1336],'3':[697,1477],'4':[770,1209],'5':[770,1336],'6':[770,1477],'7':[852,1209],'8':[852,1336],'9':[852,1477],'*':[941,1209],'0':[941,1336],'#':[941,1477]};
+  function bip(k){if(L[k])ton(L[k],.11,.045)}
+  function attendre(ms,n){return new Promise(function(ok){setTimeout(function(){ok(n===essai)},ms)})}
+
+  function duree(){var s=Math.floor((Date.now()-t0)/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+  function animer(){
+    var parle=mode==='speaking',t=Date.now()/1000,v=0;
+    if(parle&&conv&&conv.getOutputVolume){try{v=conv.getOutputVolume()||0}catch(e){}}
+    for(var i=0;i<barres.length;i++){
+      var h=parle?1.4+(2.2+Math.min(1,v*3)*7)*(.55+.45*Math.sin(t*9+i*1.7)):1.4;
+      barres[i].style.height=h.toFixed(2)+'cqw';
+    }
+    $('qui').textContent=parle?'Axio parle':'Axio vous écoute';
+    anim=requestAnimationFrame(animer);
+  }
+
+  async function appeler(){
+    if(vivant)return;
+    if(saisi.replace(/\D/g,'').length<10){saisi=NUMERO;montrer()}
+    var n=++essai;vivant=true;
+    vAppel.className='vue on sonne';vClavier.classList.remove('on');
+    $('ligne').textContent=fmt(saisi.replace(/\D/g,''));etat.className='etat';etat.textContent='Appel en cours…';
+    audio();
+    try{var flux=await navigator.mediaDevices.getUserMedia({audio:true});flux.getTracks().forEach(function(p){p.stop()})}
+    catch(e){return echec('Micro refusé. Autorisez le micro pour cette page, puis rappelez.')}
+    if(n!==essai)return;
+    for(var i=0;i<SONNERIES;i++){
+      ton([440],1.5,.06);
+      if(!(await attendre(i<SONNERIES-1?3000:1700,n)))return;
+    }
+    try{
+      var c=await ElevenLabsClient.Conversation.startSession({
+        agentId:AGENT,connectionType:'webrtc',
+        onConnect:function(){if(n!==essai)return;vAppel.classList.remove('sonne');vAppel.classList.add('pris');t0=Date.now();etat.textContent='00:00';chrono=setInterval(function(){etat.textContent=duree()},500);cancelAnimationFrame(anim);animer()},
+        onModeChange:function(m){mode=m&&m.mode||''},
+        onDisconnect:function(){if(n===essai)finir()},
+        onError:function(m){console.warn('Axio Appel :',m)}
+      });
+      if(n!==essai){try{c.endSession()}catch(e){}return}
+      conv=c;
+    }catch(e){console.warn(e);echec('Appel impossible. '+(e&&e.message?e.message:'Réessayez dans un instant.'))}
+  }
+  function arreter(){clearInterval(chrono);cancelAnimationFrame(anim);mode='';for(var i=0;i<barres.length;i++)barres[i].style.height='';var c=conv;conv=null;if(c){try{c.endSession()}catch(e){}}}
+  function finir(){
+    if(!vivant)return;
+    var d=t0?duree():'';arreter();essai++;vivant=false;t0=0;
+    vAppel.classList.remove('sonne','pris');vAppel.classList.add('fini');
+    etat.className='etat';etat.textContent=d?'Appel terminé · '+d:'Appel terminé';
+  }
+  function echec(msg){arreter();essai++;vivant=false;t0=0;vAppel.classList.remove('sonne','pris');vAppel.classList.add('fini');etat.className='etat err';etat.textContent=msg}
+  function retour(){saisi='';montrer();vAppel.className='vue';vue(vClavier)}
+
+  $('touches').addEventListener('click',function(e){var b=e.target.closest('button');if(b)taper(b.dataset.k)});
+  $('eff').addEventListener('click',function(){saisi=saisi.slice(0,-1);montrer()});
+  $('appeler').addEventListener('click',appeler);
+  $('raccrocher').addEventListener('click',finir);
+  $('rappeler').addEventListener('click',retour);
+  document.addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    var surClavier=vClavier.classList.contains('on');
+    if(surClavier&&/^[0-9*#]$/.test(e.key)){taper(e.key);var b=document.querySelector('[data-k="'+e.key+'"]');if(b){b.classList.add('tape');setTimeout(function(){b.classList.remove('tape')},120)}}
+    else if(surClavier&&e.key==='Backspace'){saisi=saisi.slice(0,-1);montrer()}
+    else if(surClavier&&e.key==='Enter'){e.preventDefault();appeler()}
+    else if(!surClavier&&e.key==='Escape'){if(vivant)finir();else retour()}
+  });
+  window.addEventListener('pagehide',arreter);
+})();
+</script>
+</body>
+</html>
