@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C'est réservé · L'IA au quotidien</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../../axio.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500;700&display=swap">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="991af07d-b9c7-4dd4-945d-59c8b4f9254d"></script>
+<style>
+:root{color-scheme:dark;--navy:#0B132B;--navy2:#1C2541;--creme:#F4EEE3;--carte:#FFFDF8;--cuivre:#D97706;--cuivre2:#F2B35C;--cuivre3:#9A4A0A;--gris:#9AA7BC;--ardoise:#3A506B;--ciel:#5BC0DE;
+--titre:"Bricolage Grotesque",system-ui,sans-serif;--corps:"Instrument Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--serif:"Instrument Serif",Georgia,serif}
+*{box-sizing:border-box;margin:0}
+body{font:400 17px/1.55 var(--corps);color:var(--creme);background:radial-gradient(ellipse 55% 40% at 50% 0,var(--navy2) 0,transparent 70%),var(--navy);min-height:100vh}
+a{color:inherit}
+.page{max-width:640px;margin:0 auto;padding:clamp(28px,6vw,64px) clamp(16px,4vw,32px) 72px}
+h1{font-family:var(--titre);font-weight:800;text-transform:uppercase;font-size:clamp(40px,8vw,64px);line-height:.95}
+h1 em{display:block;font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;color:var(--cuivre2);font-size:1.1em}
+.carte{margin-top:28px;background:var(--carte);color:var(--navy);border:3px solid var(--navy);border-radius:26px;box-shadow:10px 12px 0 var(--cuivre2);padding:clamp(22px,4vw,32px)}
+.lab{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cuivre3)}
+.quand{margin-top:8px;font-family:var(--titre);font-weight:800;font-size:clamp(26px,4.5vw,34px);line-height:1.05;text-transform:uppercase}
+.ou{margin-top:6px;color:var(--ardoise)}
+.meet{margin-top:22px;display:block;text-align:center;text-decoration:none;background:var(--cuivre);color:#fff;border:3px solid var(--navy);border-radius:16px;box-shadow:5px 6px 0 var(--navy);font-family:var(--titre);font-weight:800;font-size:19px;text-transform:uppercase;padding:16px 14px;transition:transform .12s ease,box-shadow .12s ease}
+.meet:hover,.agenda a:hover,.agenda button:hover{transform:translate(2px,3px);box-shadow:2px 3px 0 var(--navy)}
+.lien{margin-top:12px;text-align:center;font-family:var(--mono);font-size:15px;word-break:break-all}
+.agenda{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.agenda a,.agenda button{appearance:none;display:block;text-align:center;text-decoration:none;background:#fff;color:var(--navy);border:2px solid var(--navy);border-radius:14px;box-shadow:3px 4px 0 var(--navy);font:700 15px var(--corps);padding:12px 8px;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
+.note{margin-top:22px;padding:14px 16px;border:2px dashed var(--navy);border-radius:14px;font-size:15px;line-height:1.45}
+.apres{margin-top:30px;color:#dfe4ee}
+.apres li{margin-top:8px}
+.q{margin-top:28px;font-size:15px;color:var(--gris)}
+.q a{color:var(--cuivre2);font-weight:600}
+a:focus-visible,button:focus-visible{outline:3px solid var(--cuivre);outline-offset:2px}
+@media (max-width:480px){.agenda{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="page">
+  <h1>C'est réservé, <em>à mercredi !</em></h1>
+
+  <div class="carte">
+    <p class="lab">Ton cours</p>
+    <p class="quand" id="quand">Le mercredi que tu as choisi, 12 h – 13 h</p>
+    <p class="ou">En visio sur Google Meet. Une heure pour comprendre l'IA et apprendre les bases.</p>
+
+    <a class="meet" href="https://meet.google.com/jgq-vqeo-eiq" data-umami-event="ia-quotidien-meet">Ouvrir le lien Meet</a>
+    <p class="lien">meet.google.com/jgq-vqeo-eiq</p>
+
+    <div class="agenda" id="agenda" hidden>
+      <a id="gcal" href="#" target="_blank" rel="noopener" data-umami-event="ia-quotidien-agenda-google">Ajouter à Google Agenda</a>
+      <button type="button" id="ics" data-umami-event="ia-quotidien-agenda-ics">Agenda iPhone ou Outlook</button>
+    </div>
+
+    <p class="note"><b>Garde bien ce lien</b> : ajoute le cours à ton agenda maintenant ou fais une capture d'écran de cette page. C'est le même lien Meet chaque mercredi.</p>
+  </div>
+
+  <div class="apres">
+    <p class="lab" style="color:var(--gris)">Pour être prêt le jour J</p>
+    <ul>
+      <li>Connecte-toi 5 minutes avant, depuis un ordinateur ou ton téléphone.</li>
+      <li>Pas besoin d'installer quoi que ce soit : le lien s'ouvre dans le navigateur.</li>
+      <li>Note les questions que tu te poses sur l'IA, on y répond ensemble.</li>
+    </ul>
+  </div>
+
+  <p class="q">Un empêchement ou une question ? Écris-moi en privé sur Instagram : <a href="https://www.instagram.com/isaxio.lab/">@isaxio.lab</a></p>
+</main>
+
+<script>
+(function(){
+  var MEET='https://meet.google.com/jgq-vqeo-eiq';
+  var MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var id=null;try{id=localStorage.getItem('iaq-date')}catch(e){}
+  if(!id||!/^\d{4}-\d{2}-\d{2}$/.test(id))return;
+  var p=id.split('-'),an=+p[0],mo=+p[1]-1,jo=+p[2];
+  document.getElementById('quand').innerHTML='Mercredi '+jo+' '+MOIS[mo]+'<br>12\u00a0h – 13\u00a0h';
+  var j=id.replace(/-/g,''), titre="L'IA au quotidien (cours avec Renaud)";
+  var details='Cours en visio sur Google Meet : '+MEET;
+  document.getElementById('gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE'+
+    '&text='+encodeURIComponent(titre)+'&dates='+j+'T120000/'+j+'T130000&ctz=Europe/Paris'+
+    '&details='+encodeURIComponent(details)+'&location='+encodeURIComponent(MEET);
+  document.getElementById('ics').addEventListener('click',function(){
+    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Isaxio//IA au quotidien//FR','BEGIN:VEVENT',
+      'UID:iaq-'+j+'@axio-assistant.com','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z',
+      'DTSTART;TZID=Europe/Paris:'+j+'T120000','DTEND;TZID=Europe/Paris:'+j+'T130000',
+      'SUMMARY:'+titre,'DESCRIPTION:'+details,'LOCATION:'+MEET,'URL:'+MEET,
+      'BEGIN:VALARM','TRIGGER:-PT30M','ACTION:DISPLAY','DESCRIPTION:'+titre,'END:VALARM',
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
+    a.download='ia-au-quotidien-'+id+'.ics';document.body.appendChild(a);a.click();a.remove();
+  });
+  document.getElementById('agenda').hidden=false;
+})();
+</script>
+</body>
+</html>

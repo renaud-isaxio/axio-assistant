@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L'IA au quotidien · le cours pour débuter, le mercredi midi</title>
+<meta name="description" content="Une heure en visio sur Google Meet pour comprendre l'IA et apprendre les bases. Le mercredi de 12 h à 13 h. Aucune connaissance nécessaire.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../axio.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500;700&display=swap">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="991af07d-b9c7-4dd4-945d-59c8b4f9254d"></script>
+<style>
+:root{color-scheme:dark;--navy:#0B132B;--navy2:#1C2541;--trait:#2b3a60;--creme:#F4EEE3;--carte:#FFFDF8;--cuivre:#D97706;--cuivre2:#F2B35C;--cuivre3:#9A4A0A;--gris:#9AA7BC;--ardoise:#3A506B;--ciel:#5BC0DE;--alerte:#D9443A;
+--titre:"Bricolage Grotesque",system-ui,sans-serif;--corps:"Instrument Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--serif:"Instrument Serif",Georgia,serif}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{font:400 17px/1.55 var(--corps);color:var(--creme);background:radial-gradient(ellipse 55% 40% at 18% 12%,var(--navy2) 0,transparent 70%),var(--navy);min-height:100vh}
+a{color:inherit}
+.page{max-width:1160px;margin:0 auto;padding:clamp(20px,4vw,48px) clamp(16px,4vw,40px) 72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.lab{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+
+/* colonne gauche */
+.pill{display:inline-flex;align-items:center;gap:12px;background:var(--navy2);border:2px solid #34436a;border-radius:999px;padding:5px 18px 5px 5px;font-weight:600;font-size:15px}
+.pill img{width:42px;height:42px;border-radius:50%;object-fit:cover;display:block}
+h1{margin-top:22px;font-family:var(--titre);font-weight:800;text-transform:uppercase;font-size:clamp(48px,7vw,78px);line-height:.92;letter-spacing:-.01em}
+h1 em{display:block;font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:var(--cuivre2);font-size:1.12em;line-height:1}
+.sous{margin-top:18px;font-size:19px;color:#dfe4ee;max-width:32ch}
+.sous b{color:var(--cuivre2)}
+.prog{margin-top:40px}
+.prog ol{list-style:none;padding:0;margin-top:16px;display:grid;gap:10px;counter-reset:n}
+.prog li{counter-increment:n;display:flex;gap:14px;align-items:flex-start;background:var(--navy2);border:2px solid var(--trait);border-radius:16px;padding:12px 16px}
+.prog li::before{content:counter(n,decimal-leading-zero);font-family:var(--mono);font-weight:700;font-size:13px;color:var(--cuivre2);padding-top:3px}
+.prog li.alerte{border-color:var(--cuivre)}
+.axio{display:flex;align-items:flex-end;gap:14px;margin-top:34px}
+.axio img{width:120px;height:auto;display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.45))}
+.bulle{background:#e3f2f8;color:var(--navy);border:2px solid var(--ciel);border-radius:16px;border-bottom-left-radius:4px;padding:12px 15px;font-size:15px;line-height:1.4;margin-bottom:22px}
+
+/* carte de réservation */
+.resa{color-scheme:light;position:sticky;top:24px;background:var(--carte);color:var(--navy);border:3px solid var(--navy);border-radius:26px;box-shadow:10px 12px 0 var(--cuivre2);padding:clamp(22px,3vw,32px)}
+.resa .lab{color:var(--cuivre3)}
+.resa h2{margin-top:8px;font-family:var(--titre);font-weight:800;text-transform:uppercase;font-size:clamp(26px,3vw,32px);line-height:1.02}
+.tampon{position:absolute;top:-16px;right:18px;transform:rotate(7deg);font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--alerte);border:3px solid var(--alerte);border-radius:10px;padding:5px 9px;background:var(--carte)}
+.info{margin-top:10px;color:var(--ardoise);font-size:16px}
+.etape{margin-top:24px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.etape .lab{color:var(--navy)}
+.etape .lab i{font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:var(--carte);font-size:11px;letter-spacing:0;margin-right:8px}
+.mois{margin-top:14px}
+.mois h3{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ardoise);margin-bottom:8px}
+.dates{display:grid;grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:8px}
+.date{appearance:none;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:14px;padding:8px 4px 7px;cursor:pointer;font:inherit;display:grid;justify-items:center;line-height:1.05;transition:transform .12s ease,box-shadow .12s ease,background .12s ease}
+.date b{font-family:var(--titre);font-weight:800;font-size:24px}
+.date span{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ardoise);margin-top:3px}
+.date:hover{transform:translate(-1px,-2px);box-shadow:2px 3px 0 var(--navy)}
+.date[aria-pressed="true"]{background:var(--navy);color:var(--carte);box-shadow:3px 4px 0 var(--cuivre2)}
+.date[aria-pressed="true"] span{color:var(--cuivre2)}
+.date:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through;box-shadow:none;transform:none}
+.date:focus-visible,.btn:focus-visible,.plus{margin-top:12px;appearance:none;background:none;border:0;font:600 15px var(--corps);color:var(--cuivre3);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:4px 0}
+.total{margin-top:20px;display:flex;align-items:baseline;gap:12px}
+.total b{font-family:var(--mono);font-size:40px;font-weight:700;line-height:1}
+.total s{font-family:var(--mono);color:var(--ardoise);font-size:18px}
+.total span{color:var(--ardoise);font-size:15px}
+.btn{margin-top:18px;display:block;width:100%;text-align:center;text-decoration:none;background:var(--cuivre);color:#fff;border:3px solid var(--navy);border-radius:16px;box-shadow:5px 6px 0 var(--navy);font-family:var(--titre);font-weight:800;font-size:clamp(17px,2vw,20px);text-transform:uppercase;padding:17px 14px;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
+.btn:hover{transform:translate(2px,3px);box-shadow:2px 3px 0 var(--navy)}
+.btn[aria-disabled="true"]{background:#c9ccd3;color:#59627a;box-shadow:none;cursor:not-allowed;transform:none}
+.sur{margin-top:14px;font-size:13px;color:var(--ardoise);text-align:center}
+.q{margin-top:22px;padding-top:16px;border-top:1px solid #e3ddd0;font-size:14px;color:var(--ardoise);text-align:center}
+.q a{color:var(--cuivre3);font-weight:600}
+
+@media (max-width:860px){.page{grid-template-columns:1fr}.resa{position:static}.axio img{width:96px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="page">
+  <section>
+    <div class="pill"><img src="../media/renaud-160.jpg" alt="Renaud" width="42" height="42"><span>Renaud</span></div>
+    <h1>L'IA au <em>quotidien</em></h1>
+    <p class="sous">Le cours pour <b>débuter</b> : comprendre ce qu'est l'IA et apprendre les bases, en une heure de visio. Aucune connaissance nécessaire.</p>
+    <div class="prog">
+      <p class="lab">Ce qu'on fait ensemble</p>
+      <ol>
+        <li>Comprendre ce qu'est l'IA et ce qu'elle sait faire, simplement</li>
+        <li>Découvrir les principaux outils (ChatGPT, Claude, Gemini…) et lequel choisir</li>
+        <li>Savoir lui poser une question pour obtenir une réponse utile</li>
+        <li>Voir ce qu'elle peut faire pour toi au quotidien</li>
+        <li class="alerte">Repérer ses erreurs et les arnaques, savoir quand ne pas lui faire confiance</li>
+      </ol>
+    </div>
+    <div class="axio">
+      <img src="../media/axio-telephone.webp" alt="" width="120" loading="lazy">
+      <p class="bulle">Tu n'as jamais utilisé l'IA ? Parfait, ce cours est fait pour toi. On part de zéro, ensemble.</p>
+    </div>
+  </section>
+
+  <aside class="resa" aria-labelledby="resa-titre">
+    <span class="tampon">Débutants</span>
+    <p class="lab">Réserve ta place</p>
+    <h2 id="resa-titre">Le mercredi, 12 h – 13 h</h2>
+    <p class="info">Une heure en visio sur Google Meet. Le lien s'affiche juste après le paiement.</p>
+
+    <div class="etape"><p class="lab"><i>1</i>Choisis ton mercredi</p></div>
+    <div id="calendrier"></div>
+    <button type="button" class="plus" id="plus" hidden>Voir les dates suivantes</button>
+
+    <div class="total" aria-live="polite"><b>20&#8239;€</b><span>pour une séance</span></div>
+    <a class="btn" id="reserver" href="#" aria-disabled="true" data-umami-event="ia-quotidien-reserver">Choisis d'abord un mercredi</a>
+    <p class="sur">Paiement sécurisé par Stripe : carte bancaire ou Apple Pay.</p>
+    <p class="q">Une question ? Écris-moi en privé sur Instagram : <a href="https://www.instagram.com/isaxio.lab/">@isaxio.lab</a></p>
+  </aside>
+</main>
+
+<script>
+(function(){
+  var LIEN_STRIPE='https://buy.stripe.com/8x23cxfF4eJL9mG8Pz7wA00';
+  var NB_SEMAINES=24, VISIBLES=8;
+  /* Mercredis sans cours : ajouter la date au format AAAA-MM-JJ, par exemple '2026-12-23' */
+  var DATES_FERMEES=['2026-12-30'];
+  /* Le jour même, on peut encore réserver jusqu'à 11 h 30 */
+  var LIMITE_JOUR_MEME={h:11,m:30};
+
+  var MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var MOIS_COURT=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+
+  /* les 24 prochains mercredis */
+  var now=new Date(), d=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  var ecart=(3-d.getDay()+7)%7;
+  if(ecart===0 && (now.getHours()>LIMITE_JOUR_MEME.h || (now.getHours()===LIMITE_JOUR_MEME.h && now.getMinutes()>=LIMITE_JOUR_MEME.m))) ecart=7;
+  d.setDate(d.getDate()+ecart);
+  /* toujours 24 mercredis réservables : une date fermée est remplacée par le mercredi suivant */
+  var dates=[];
+  while(dates.length<NB_SEMAINES){if(DATES_FERMEES.indexOf(iso(d))<0)dates.push(new Date(d));d.setDate(d.getDate()+7)}
+
+  var cal=document.getElementById('calendrier'), plus=document.getElementById('plus'), btn=document.getElementById('reserver');
+  var choix=null, toutVoir=false;
+
+  function dessiner(){
+    cal.innerHTML='';
+    var liste=toutVoir?dates:dates.slice(0,VISIBLES), groupe=null, grille=null;
+    liste.forEach(function(x){
+      var cle=x.getFullYear()+'-'+x.getMonth();
+      if(cle!==groupe){
+        groupe=cle;
+        var m=document.createElement('div');m.className='mois';
+        var h=document.createElement('h3');h.textContent=MOIS[x.getMonth()]+' '+x.getFullYear();
+        grille=document.createElement('div');grille.className='dates';
+        m.appendChild(h);m.appendChild(grille);cal.appendChild(m);
+      }
+      var b=document.createElement('button');b.type='button';b.className='date';
+      var id=iso(x), ferme=DATES_FERMEES.indexOf(id)>-1;
+      b.innerHTML='<b>'+x.getDate()+'</b><span>'+MOIS_COURT[x.getMonth()]+'</span>';
+      b.setAttribute('aria-label','Mercredi '+x.getDate()+' '+MOIS[x.getMonth()]+(ferme?', pas de cours':''));
+      b.setAttribute('aria-pressed',choix===id?'true':'false');
+      if(ferme)b.disabled=true;
+      b.addEventListener('click',function(){choix=id;dessiner();maj()});
+      grille.appendChild(b);
+    });
+    plus.hidden=toutVoir;
+  }
+  plus.addEventListener('click',function(){toutVoir=true;dessiner()});
+
+  function maj(){
+    if(!choix){btn.setAttribute('aria-disabled','true');btn.href='#';btn.textContent="Choisis d'abord un mercredi";return}
+    var x=dates.filter(function(y){return iso(y)===choix})[0];
+    var url=LIEN_STRIPE+'?client_reference_id=mercredi-'+choix;
+    btn.href=url;btn.removeAttribute('aria-disabled');
+    btn.textContent='Je réserve le mercredi '+x.getDate()+' '+MOIS[x.getMonth()];
+  }
+  btn.addEventListener('click',function(e){
+    if(!choix){e.preventDefault();cal.querySelector('.date:not(:disabled)').focus();return}
+    try{localStorage.setItem('iaq-date',choix)}catch(err){}
+  });
+  dessiner();maj();
+})();
+</script>
+</body>
+</html>
