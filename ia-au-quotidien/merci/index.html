@@ -33,6 +33,14 @@ h1 em{display:block;font-family:var(--serif);font-style:italic;font-weight:400;t
 .apres li{margin-top:8px}
 .q{margin-top:28px;font-size:15px;color:var(--gris)}
 .q a{color:var(--cuivre2);font-weight:600}
+.insta{margin-top:30px;display:flex;align-items:center;gap:16px;text-decoration:none;background:var(--navy2);border:2px solid #34436a;border-radius:20px;padding:16px 18px}
+.insta:hover{border-color:var(--cuivre2)}
+.insta .ic{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+.insta .ic svg{width:28px;height:28px}
+.insta b{display:block;font-family:var(--titre);font-weight:800;font-size:20px}
+.insta span span{display:block;font-size:15px;color:var(--gris);line-height:1.4}
+.legal{margin-top:36px;padding-top:18px;border-top:1px solid #2b3a60;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--gris)}
+.legal a{color:var(--gris)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--cuivre);outline-offset:2px}
 @media (max-width:480px){.agenda{grid-template-columns:1fr}}
 </style>
@@ -66,7 +74,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--cuivre);outline-off
     </ul>
   </div>
 
-  <p class="q">Un empêchement ou une question ? Écris-moi en privé sur Instagram : <a href="https://www.instagram.com/isaxio.lab/">@isaxio.lab</a></p>
+  <a class="insta" href="https://www.instagram.com/isaxio.lab/" target="_blank" rel="noopener" data-umami-event="ia-quotidien-merci-instagram">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="#fff" stroke="none"/></svg></span>
+    <span><b>Abonne-toi à @isaxio.lab</b><span>Des astuces IA en vidéo d'ici mercredi. Un empêchement ou une question ? Écris-moi en privé.</span></span>
+  </a>
+  <footer class="legal"><span>Bertrand Conseil</span><a href="../cgv/">Conditions générales de vente</a><a href="../mentions-legales/">Mentions légales et données personnelles</a></footer>
 </main>
 
 <script>

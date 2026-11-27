@@ -1,0 +1,18 @@
+:root{color-scheme:light;--navy:#0B132B;--carte:#FFFDF8;--creme:#F4EEE3;--cuivre:#D97706;--cuivre2:#F2B35C;--cuivre3:#9A4A0A;--ardoise:#3A506B;
+--titre:"Bricolage Grotesque",system-ui,sans-serif;--corps:"Instrument Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0}
+body{font:400 17px/1.65 var(--corps);color:var(--navy);background:var(--creme)}
+.page{max-width:760px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(16px,4vw,32px) 80px}
+.retour{display:inline-block;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cuivre3);text-decoration:none;margin-bottom:22px}
+.retour:hover{text-decoration:underline}
+h1{font-family:var(--titre);font-weight:800;text-transform:uppercase;font-size:clamp(32px,5vw,46px);line-height:1}
+.maj{margin-top:10px;font-family:var(--mono);font-size:13px;color:var(--ardoise)}
+.carte{margin-top:28px;background:var(--carte);border:3px solid var(--navy);border-radius:22px;box-shadow:8px 10px 0 var(--cuivre2);padding:clamp(20px,4vw,36px)}
+h2{font-family:var(--titre);font-weight:800;font-size:22px;line-height:1.15;margin:32px 0 10px}
+h2:first-child{margin-top:0}
+p,li{margin-top:10px}
+ul{padding-left:22px}
+a{color:var(--cuivre3)}
+.a-completer{background:#ffe7c2;border-radius:4px;padding:0 4px;font-family:var(--mono);font-size:.9em}
+.formulaire{margin-top:14px;padding:16px 18px;border:2px dashed var(--navy);border-radius:14px;font-size:16px}
+footer{margin-top:28px;font-size:14px;color:var(--ardoise);display:flex;flex-wrap:wrap;gap:8px 20px}
